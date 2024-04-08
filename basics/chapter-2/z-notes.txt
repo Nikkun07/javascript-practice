@@ -1,0 +1,22 @@
+JavaScript Datatypes
+
+Number
+    {1, 2, 3, 100, 3.14}
+    
+String
+    'hello, world', 'sample@email.com'
+
+Boolean
+    true/ false
+
+Null
+    Explicitly set a variable with no value.
+
+Undefined
+    For variables that have not yet been defined.
+
+Object
+    Complex data structures - Arrays, Dates, Literals, etc.
+    
+Symbol
+    Used with Objects
