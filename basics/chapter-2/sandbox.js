@@ -68,3 +68,41 @@ comment */
     let result2 = email2.replace('n', 'w');
     console.log(result2);
 
+
+//Numbers
+
+let radius = 10;
+const pi = 3.14;
+
+//console.log(radius, pi);
+
+//Math Operators +, -, /, *, **(power), % (remainder)
+
+// console.log(10 / 2);
+// let result3 = radius % 3;
+// let result3 = pi * radius**2;
+
+//Order of operations - B I D M A S
+
+// let result3 = 5 * (10-3)**2;
+// console.log(result3);
+
+let likes = 10;
+
+//likes = likes + 1;
+
+/* Short-hand notation */
+//likes++; //Increment
+//likes--; //Decrement
+// likes += 10;
+// likes -= 5;
+// likes *=2;
+// likes /=2;
+// console.log(likes);
+
+//NaN (Not a Number)
+
+// console.log(5 / 'hello');
+// console.log(5 * 'hello');
+
+
