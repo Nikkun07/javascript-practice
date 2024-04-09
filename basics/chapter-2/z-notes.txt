@@ -12,9 +12,11 @@ Boolean
 
 Null
     Explicitly set a variable with no value.
+    Null = Intentional lack of value
 
 Undefined
     For variables that have not yet been defined.
+    Undefined = Unintentional lack of value
 
 Object
     Complex data structures - Arrays, Dates, Literals, etc.
