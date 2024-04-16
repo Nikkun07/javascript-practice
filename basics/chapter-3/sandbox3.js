@@ -14,3 +14,10 @@ else
 {
     console.log("You need to have a stronger password.");
 }
+
+//Logical NOT (!)
+
+let user = false;
+
+console.log(!true);
+console.log(!false);
