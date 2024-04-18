@@ -9,3 +9,6 @@ console.log(name); //Nothings going to happen because the name variable is local
 
 speak(/* 'Retard', 'Morning' */); //Order of Argument must be the same order as Parameter
 speak('Guian', 'Day'); 
+
+
+
