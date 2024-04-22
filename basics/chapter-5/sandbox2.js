@@ -21,7 +21,7 @@ let user = {
         this.blogs.forEach(blog =>
             {
                 console.log(blog);
-            })
+            });
         // console.log(this);
         //"this" keyword is a context object.
     }
