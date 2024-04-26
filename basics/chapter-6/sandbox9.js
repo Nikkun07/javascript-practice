@@ -1,7 +1,5 @@
 const ul = document.querySelector('ul');
 // ul.remove();
-
-const items = document.querySelectorAll('li');
 const buttonAdd = document.querySelector('button');
 
 buttonAdd.addEventListener('click', () =>
@@ -11,14 +9,30 @@ buttonAdd.addEventListener('click', () =>
     li.textContent = 'Something New To Do';
     li.classList.add('li-style');
     // ul.append(li);
-    ul.prepend(li);
+    ul.append(li);
 });
 
-items.forEach(item =>
+// const items = document.querySelectorAll('li');
+
+// items.forEach(item =>
+// {
+//     item.addEventListener('click', e =>
+//     {
+//         // e.target.classList.toggle('done');
+//         // e.target.remove();
+//         e.stopPropagation();
+//         console.log('event in LI');
+//     });
+// });
+
+ul.addEventListener('click',e =>
 {
-    item.addEventListener('click', e =>
+    //console.log('event in UL');
+    console.log(e);
+    if(e.target.tagName === 'LI')
     {
-        // e.target.classList.toggle('done');
+        console.log('Bruh');
         e.target.remove();
-    });
-});
+        // e.target.classList.add('done');
+    }
+})
