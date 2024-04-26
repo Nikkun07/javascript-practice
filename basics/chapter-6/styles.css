@@ -27,4 +27,5 @@
 .done
 {
     background-color: limegreen;
+    text-decoration: line-through;
 }
