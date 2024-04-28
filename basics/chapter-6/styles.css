@@ -29,3 +29,13 @@
     background-color: limegreen;
     text-decoration: line-through;
 }
+
+.box
+{
+    width: 200px;
+    height: 200px;
+    margin: 10px 0;
+    background: #eee;
+    text-align: center;
+    padding: 20px;
+}
