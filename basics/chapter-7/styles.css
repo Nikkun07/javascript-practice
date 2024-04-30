@@ -17,3 +17,15 @@ input
     margin: 10px auto;
     padding: 4px;
 }
+
+.valid
+{
+    color: #50C878;
+    font-style: italic;
+}
+
+.invalid
+{
+    color: crimson;
+    font-style: italic;
+}
