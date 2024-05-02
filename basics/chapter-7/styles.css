@@ -20,7 +20,7 @@ input
 
 .valid
 {
-    color: #50C878;
+    color: limegreen;
     font-style: italic;
 }
 
@@ -28,4 +28,16 @@ input
 {
     color: crimson;
     font-style: italic;
+}
+
+.borderValid
+{
+    border: 2px solid limegreen;
+    focus: none;
+}
+
+.borderInvalid
+{
+    border: 2px solid crimson;
+    focus: none;
 }
