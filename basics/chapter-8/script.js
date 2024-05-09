@@ -1,6 +1,7 @@
+const resultText = document.querySelector('.result');
 const correctAnswers = ['B', 'B', 'A', 'B'];
-
 const form = document.querySelector('.quiz-form');
+const spanResult = document.querySelector('.span-result');
 
 form.addEventListener('submit', e =>
 {
@@ -16,5 +17,9 @@ form.addEventListener('submit', e =>
         }
     });
 
-    console.log(score);
+    resultText.classList.remove('hidden');
+    //spanResult.innerHTML = spanResult.innerHTML.replace(spanResult.innerHTML, `${score}%`);
+    //Better Option:
+    spanResult.textContent = `${score}%`;
+    
 });
