@@ -17,6 +17,7 @@ form.addEventListener('submit', e =>
         }
     });
 
+    scrollTo(0,0);
     resultText.classList.remove('hidden');
     //spanResult.innerHTML = spanResult.innerHTML.replace(spanResult.innerHTML, `${score}%`);
     //Better Option:
@@ -31,3 +32,10 @@ form.addEventListener('submit', e =>
 // window.console.log("hello");
 
 // console.log(document.querySelector('form'));
+
+//alert("Hello");
+
+// setTimeout(() =>
+// {
+//     alert("Hello Retard");
+// }, 3000);
