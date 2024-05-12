@@ -23,3 +23,11 @@ form.addEventListener('submit', e =>
     spanResult.textContent = `${score}%`;
     
 });
+
+
+//window Object
+
+// console.log('Hello');
+// window.console.log("hello");
+
+// console.log(document.querySelector('form'));
