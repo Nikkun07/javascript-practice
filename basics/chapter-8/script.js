@@ -21,7 +21,21 @@ form.addEventListener('submit', e =>
     resultText.classList.remove('hidden');
     //spanResult.innerHTML = spanResult.innerHTML.replace(spanResult.innerHTML, `${score}%`);
     //Better Option:
-    spanResult.textContent = `${score}%`;
+    //spanResult.textContent = `${score}%`;
+
+    let output = 0;
+    const timer = setInterval(() =>
+    {
+        spanResult.textContent = `${output}%`;
+        if(output === score)
+            {
+                clearInterval(timer);
+            }
+        else
+        {
+            output++;
+        }
+    }, 10);
     
 });
 
@@ -39,3 +53,15 @@ form.addEventListener('submit', e =>
 // {
 //     alert("Hello Retard");
 // }, 3000);
+
+// let i = 0;
+
+// const timer = setInterval(() =>
+// {
+//     console.log('Hello');
+//     i++;
+//     if (i === 5)
+//         {
+//             clearInterval(timer);
+//         }
+// }, 1000);
