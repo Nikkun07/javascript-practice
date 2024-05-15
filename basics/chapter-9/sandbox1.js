@@ -12,14 +12,14 @@ const scores = [10, 30, 15, 25, 50, 40, 5];
 
 const users = 
 [
-    {name: "Nikkun", premium: true},
-    {name: "Renti", premium: false},
-    {name: "Sakuya", premium: true},
-    {name: "Sovo", premium: false},
-    {name: "Chigga", premium: true},
+    {name: "Nikkun", retard: true},
+    {name: "Renti", retard: false},
+    {name: "Sakuya", retard: true},
+    {name: "Sovo", retard: false},
+    {name: "Chigga", retard: true},
 ];
 
-const premUsers = users.filter(user =>user.premium);
+const retardUsers = users.filter(user =>user.retard);
 
 
-console.log(premUsers);
+console.log(retardUsers);
