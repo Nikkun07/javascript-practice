@@ -8,17 +8,33 @@
 </head>
 <body>
     
-    <div class="flex flex-col mx-auto w-screen bg-slate-200">
-        <header class="text-center font-light my-4">
+    <div class="flex flex-col mx-auto justify-center bg-slate-200">
+        <header class="text-center font-light my-4 ">
             <h1 class="mb-6 text-4xl font-light ">
                 TO DO LIST
             </h1>
-            <form class="search flex flex-col mx-auto w-screen">
+            <form class="search flex flex-col mx-auto">
                 <input class="border-2 rounded border-slate-300 mx-auto p-2" type="text" name="search" placeholder="Search To Dos">
             </form>
-
-
         </header>
+
+
+        <ul class="list-group todos mx-auto text-slate-500 my-3">
+            <li class="rounded-lg py-4 px-9 mx-auto my-1 list-group-item flex flex-col items-center justify-between hover:bg-blue-400 hover:text-black duration-150">
+                <span>Do Lineart</span>
+                <i class="far fa-trash-alt delete"></i>
+            </li>
+
+            <li class="rounded-lg py-4 px-9 mx-auto my-1 list-group-item flex flex-col items-center justify-between hover:bg-blue-400 hover:text-black duration-150">
+                <span>Do Lineart</span>
+                <i class="far fa-trash-alt delete"></i>
+            </li>
+
+            <li class="rounded-lg py-4 px-9 mx-auto my-1 list-group-item flex flex-col items-center justify-between hover:bg-blue-400 hover:text-black duration-150">
+                <span>Do Lineart</span>
+                <i class="far fa-trash-alt delete"></i>
+            </li>
+        </ul>
     </div>
 
     <script src="script.js"></script>
