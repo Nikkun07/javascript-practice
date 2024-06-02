@@ -2,13 +2,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19f4bc42a3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <title>To Do List</title>
 </head>
 <body>
     
-    <div class="flex flex-col mx-auto justify-center bg-slate-200">
+    <div class="flex flex-col mx-auto justify-center items-center">
         <header class="text-center font-light my-4 ">
             <h1 class="mb-6 text-4xl font-light ">
                 TO DO LIST
@@ -19,22 +20,35 @@
         </header>
 
 
-        <ul class="list-group todos mx-auto text-slate-500 my-3">
-            <li class="rounded-lg py-4 px-9 mx-auto my-1 list-group-item flex flex-col items-center justify-between hover:bg-blue-400 hover:text-black duration-150">
-                <span>Do Lineart</span>
-                <i class="far fa-trash-alt delete"></i>
+        <ul class="container flex flex-col px-14 py-4 rounded-lg bg-slate-200 todos mx-auto text-slate-600 my-3 text-lg">
+
+            <li class="flex flex-row w-full max-w-[55%] rounded-lg py-4 px-12 mx-auto my-1 items-center justify-between hover:bg-blue-400 hover:text-black hover:scale-105 duration-150">
+                <span>Finalize Sketch</span>
+                <i class="far fa-trash-alt delete p-3 cursor-pointer rounded-full hover:bg-red-600 hover:text-white duration-150"></i>
             </li>
 
-            <li class="rounded-lg py-4 px-9 mx-auto my-1 list-group-item flex flex-col items-center justify-between hover:bg-blue-400 hover:text-black duration-150">
+            <li class="flex flex-row w-full max-w-[55%] rounded-lg py-4 px-12 mx-auto my-1 items-center justify-between hover:bg-blue-400 hover:text-black hover:scale-105 duration-150">
                 <span>Do Lineart</span>
-                <i class="far fa-trash-alt delete"></i>
+                <i class="far fa-trash-alt delete p-3 cursor-pointer rounded-full hover:bg-red-600 hover:text-white duration-150"></i>
             </li>
 
-            <li class="rounded-lg py-4 px-9 mx-auto my-1 list-group-item flex flex-col items-center justify-between hover:bg-blue-400 hover:text-black duration-150">
-                <span>Do Lineart</span>
-                <i class="far fa-trash-alt delete"></i>
+            <li class="flex flex-row w-full max-w-[55%] rounded-lg py-4 px-12 mx-auto my-1 items-center justify-between hover:bg-blue-400 hover:text-black hover:scale-105 duration-150">
+                <span>Fill Flat Colors</span>
+                <i class="far fa-trash-alt delete p-3 cursor-pointer rounded-full hover:bg-red-600 hover:text-white duration-150"></i>
             </li>
+
+            <li class="flex flex-row w-full max-w-[55%] rounded-lg py-4 px-12 mx-auto my-1 items-center justify-between hover:bg-blue-400 hover:text-black hover:scale-105 duration-150">
+                <span>Render + Post Process</span>
+                <i class="far fa-trash-alt delete p-3 cursor-pointer rounded-full hover:bg-red-600 hover:text-white duration-150"></i>
+            </li>            
+
         </ul>
+
+
+        <form class="flex flex-row w-full max-w-[50%] justify-between border-2 rounded mt-7 p-6 add text-center my-6 text-xl">
+            <label class="text-slate-600 font-light">Add new To Do: </label>
+            <input class="m-auto" type="text" name="add"/>
+        </form>
     </div>
 
     <script src="script.js"></script>
