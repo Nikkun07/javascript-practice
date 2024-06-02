@@ -1,7 +1,7 @@
 //Declaration
 const addForm = document.querySelector('.add');
-
 const todoList = document.querySelector('.todos');
+const searchToDo = document.querySelector('.search input');
 
 const genTemplate = todo =>
 {
@@ -17,7 +17,7 @@ addForm.addEventListener('submit', e =>
 {
     e.preventDefault();
     const todo = addForm.add.value.trim();
-    
+
     //console.log(todo); (Console Check)
 
     if(todo.length)
@@ -25,4 +25,28 @@ addForm.addEventListener('submit', e =>
         genTemplate(todo);
         addForm.reset();
     }
+});
+
+//Event Delegation
+//Delete ToDos
+
+todoList.addEventListener('click', e =>
+{
+    if(e.target.classList.contains('delete'))
+    {
+        e.target.parentElement.remove();
+    }
+});
+
+const filterToDos = (term) => 
+{
+    Array.from(todoList.children)
+        .filter(todoItems => !todoItems.textContent.includes(term));
+};
+
+//Keyup Event
+searchToDo.addEventListener('keyup', () =>
+{
+    const term = searchToDo.value.trim();
+    filterToDos(term);
 });
