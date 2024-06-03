@@ -41,12 +41,20 @@ todoList.addEventListener('click', e =>
 const filterToDos = (term) => 
 {
     Array.from(todoList.children)
-        .filter(todoItems => !todoItems.textContent.includes(term));
+        .filter((todoItems) => !todoItems.textContent.toLowerCase().includes(term))
+        .forEach((todoItems) => todoItems.classList.add('hidden'));
+
+    
+    Array.from(todoList.children)
+        .filter((todoItems) => todoItems.textContent.toLowerCase().includes(term))
+        .forEach((todoItems) => todoItems.classList.remove('hidden'));
+
+    console.log(todoList.textContent);
 };
 
 //Keyup Event
 searchToDo.addEventListener('keyup', () =>
 {
-    const term = searchToDo.value.trim();
+    const term = searchToDo.value.trim().toLowerCase();
     filterToDos(term);
 });
