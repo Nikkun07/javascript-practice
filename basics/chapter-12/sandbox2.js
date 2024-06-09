@@ -3,7 +3,7 @@
 //HTTP requests are a way to reach out to those servers
 //Requests to API endpoints
 
-const getTodos = (callBack) =>
+const getTodos = (resource, callBack) =>
 {
     const request = new XMLHttpRequest();
 
@@ -22,26 +22,27 @@ const getTodos = (callBack) =>
         }
     });
 
-    request.open('GET', 'todos.json');
+    request.open('GET', resource);
     request.send();
 };
 
 
-console.log(1);
-console.log(2);
 
-getTodos((err, data) =>
+
+getTodos('nikkun.json',(err, data) =>
 {
     console.log('Callback is Fired');
-    if(err)
+    console.log(data);
+    
+    getTodos('renti.json',(err, data) =>
     {
-        console.log(err);
-    }
-    else
-    {
+        console.log('Callback is Fired');
         console.log(data);
-    }
-});
 
-console.log(3);
-console.log(4);
+        getTodos('sakuya.json',(err,data) =>
+        {
+            console.log('Callback is Fired');
+            console.log(data); 
+        });
+    });
+});
