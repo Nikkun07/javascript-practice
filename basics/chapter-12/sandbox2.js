@@ -3,22 +3,44 @@
 //HTTP requests are a way to reach out to those servers
 //Requests to API endpoints
 
-const request = new XMLHttpRequest();
-
-request.addEventListener('readystatechange', () =>
+const getTodos = (callBack) =>
 {
-    //console.log(request, request.readyState);
+    const request = new XMLHttpRequest();
 
-    if(request.readyState === 4 && request.status === 200)
+    request.addEventListener('readystatechange', () =>
     {
-        console.log(request, request.responseText);
+        //console.log(request, request.readyState);
+
+        if(request.readyState === 4 && request.status === 200)
+        {
+            callBack(undefined, request.responseText);
+        }
+        else if(request.readyState === 4)
+        {
+            callBack('Could not fetch data.', undefined);
+        }
+    });
+
+    request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+    request.send();
+};
+
+
+console.log(1);
+console.log(2);
+
+getTodos((err, data) =>
+{
+    console.log('Callback is Fired');
+    if(err)
+    {
+        console.log(err);
     }
-    else if(request.readyState === 4)
+    else
     {
-        console.log('Status', request.status, ' Error');
-        console.log("Could not fetch the data.");
+        console.log(data);
     }
 });
 
-request.open('GET', 'https://jsonplaceholder.typicode.com/todoss/');
-request.send();
+console.log(3);
+console.log(4);
