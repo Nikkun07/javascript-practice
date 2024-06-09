@@ -13,7 +13,8 @@ const getTodos = (callBack) =>
 
         if(request.readyState === 4 && request.status === 200)
         {
-            callBack(undefined, request.responseText);
+            const data = JSON.parse(request.responseText);
+            callBack(undefined, data);
         }
         else if(request.readyState === 4)
         {
@@ -21,7 +22,7 @@ const getTodos = (callBack) =>
         }
     });
 
-    request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+    request.open('GET', 'todos.json');
     request.send();
 };
 
