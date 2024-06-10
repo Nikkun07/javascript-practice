@@ -3,31 +3,41 @@
 //HTTP requests are a way to reach out to those servers
 //Requests to API endpoints
 
-const getTodos = (resource, callBack) =>
+const getTodos = (resource) =>
 {
-    const request = new XMLHttpRequest();
-
-    request.addEventListener('readystatechange', () =>
+    return new Promise((reslove, reject) =>
     {
-        //console.log(request, request.readyState);
+        const request = new XMLHttpRequest();
 
-        if(request.readyState === 4 && request.status === 200)
+        request.addEventListener('readystatechange', () =>
         {
-            const data = JSON.parse(request.responseText);
-            callBack(undefined, data);
-        }
-        else if(request.readyState === 4)
-        {
-            callBack('Could not fetch data.', undefined);
-        }
+            //console.log(request, request.readyState);
+
+            if(request.readyState === 4 && request.status === 200)
+            {
+                const data = JSON.parse(request.responseText);
+                reslove(data);
+            }
+            else if(request.readyState === 4)
+            {
+                reject('Error getting resource.')
+            }
+        });
+
+        request.open('GET', resource);
+        request.send();
     });
-
-    request.open('GET', resource);
-    request.send();
+    
 };
 
 
-
+getTodos('nikkun.json').then(data =>
+{
+    console.log('Promise Resolved', data);
+}).catch(err =>
+{
+    console.log('Promise Rejected: ', err);
+});
 
 /* getTodos('nikkun.json',(err, data) =>
 {
@@ -50,7 +60,7 @@ const getTodos = (resource, callBack) =>
 
 //Promise example
 
-const getSomething = () =>
+/* const getSomething = () =>
 {
     return new Promise((reslove, reject) =>
     {
@@ -59,4 +69,22 @@ const getSomething = () =>
         reslove('Some Data');
         reject('Some Error');
     });
-};
+}; */
+
+/* getSomething().then((data) =>
+{
+    console.log(data);
+}, (err) =>
+{
+    console.log(err)
+});
+ */
+
+/* getSomething().then(data =>
+{
+    console.log(data);
+}).catch(err =>
+    {
+        console.log(err);
+    }
+); */
