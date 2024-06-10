@@ -29,7 +29,7 @@ const getTodos = (resource, callBack) =>
 
 
 
-getTodos('nikkun.json',(err, data) =>
+/* getTodos('nikkun.json',(err, data) =>
 {
     console.log('Callback is Fired');
     console.log(data);
@@ -46,3 +46,17 @@ getTodos('nikkun.json',(err, data) =>
         });
     });
 });
+ */
+
+//Promise example
+
+const getSomething = () =>
+{
+    return new Promise((reslove, reject) =>
+    {
+        //Network Request here 
+        //Fetch Something
+        reslove('Some Data');
+        reject('Some Error');
+    });
+};
