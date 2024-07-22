@@ -33,7 +33,15 @@ const getTodos = (resource) =>
 
 getTodos('nikkun.json').then(data =>
 {
-    console.log('Promise Resolved', data);
+    console.log('Promise 1 Resolved', data);
+    return getTodos('renti.json')
+}).then(data =>
+{
+    console.log('Promise 2 Resolved', data);
+    return getTodos('sakuya.json');
+}).then(data =>
+{
+    console.log('Promise 3 Resolved', data)
 }).catch(err =>
 {
     console.log('Promise Rejected: ', err);
