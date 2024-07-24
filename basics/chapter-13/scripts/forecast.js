@@ -1,7 +1,5 @@
 const key = 'vC4T1EoPj7gzXphwAkascMO2cbUREzvJ';
 
-
-
 //Get City Info
 const getCity = async (city) => 
 {
@@ -28,11 +26,12 @@ const getWeather = async (locID) =>
     return data[0];
 };
 
-getCity('manila').then(data => 
-    {
-        return getWeather(data.Key);
-    }).then(data => 
-    {
-        console.log(data);
-    })
-    .catch(err => console.log(err));
+/* TEST */
+// getCity('manila').then(data => 
+//     {
+//         return getWeather(data.Key);
+//     }).then(data => 
+//     {
+//         console.log(data);
+//     })
+//     .catch(err => console.log(err));
