@@ -3,7 +3,11 @@
 const cityFormInput = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
+const time = document.querySelector('img.time');
+const icon = document.querySelector('.icon img');
 
+
+//UI Update
 const updateUI = (data) =>
 {
 
@@ -24,6 +28,24 @@ const updateUI = (data) =>
             <span>&deg;C</span>
         </div>
     `;
+    
+    
+    //Update Icon Images & Day/Night Image
+    const iconSrc = `icons/${weather.WeatherIcon}.svg`;
+    icon.setAttribute('src', iconSrc);
+
+
+    let timeSrc = null;
+    if(weather.IsDayTime)
+    {
+        timeSrc = 'icons/day.svg';
+    }
+    else
+    {
+        timeSrc = 'icons/night.svg';
+    }
+
+    time.setAttribute('src', timeSrc);
 
     //Show Card
     if(card.classList.contains('d-none'))
@@ -32,7 +54,7 @@ const updateUI = (data) =>
     }
 }
 
-
+//City Search
 const updateCity = async (city) =>
 {
     const cityInfo = await getCity(city);
@@ -41,7 +63,7 @@ const updateCity = async (city) =>
     return {cityInfo,weather}; //Object Shorthand Notation
 };
 
-
+//City Input 
 cityFormInput.addEventListener('submit', e =>
 {
     //prevent default action
