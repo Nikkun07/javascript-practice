@@ -35,15 +35,17 @@ const updateUI = (data) =>
     icon.setAttribute('src', iconSrc);
 
 
-    let timeSrc = null;
-    if(weather.IsDayTime)
-    {
-        timeSrc = 'icons/day.svg';
-    }
-    else
-    {
-        timeSrc = 'icons/night.svg';
-    }
+    /* Ternary Operator */
+    let timeSrc = weather.IsDayTime ? 'icons/day.svg' : 'icons/night.svg';
+    
+    // if(weather.IsDayTime)
+    // {
+    //     timeSrc = 'icons/day.svg';
+    // }
+    // else
+    // {
+    //     timeSrc = 'icons/night.svg';
+    // }
 
     time.setAttribute('src', timeSrc);
 
