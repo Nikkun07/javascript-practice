@@ -6,8 +6,13 @@ const details = document.querySelector('.details');
 
 const updateUI = (data) =>
 {
-    const cityInfo = data.cityInfo;
-    const weather = data.weather;
+
+    // console.log(data);
+    // const cityInfo = data.cityInfo;
+    // const weather = data.weather;
+
+    //Destructuring Properties
+    const {cityInfo, weather} = data;
 
     //update Details Template
     details.innerHTML = 
