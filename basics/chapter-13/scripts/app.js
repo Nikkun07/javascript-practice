@@ -1,6 +1,33 @@
 //DOM Manipulation
 
 const cityFormInput = document.querySelector('form');
+const card = document.querySelector('.card');
+const details = document.querySelector('.details');
+
+const updateUI = (data) =>
+{
+    const cityInfo = data.cityInfo;
+    const weather = data.weather;
+
+    //update Details Template
+    details.innerHTML = 
+    `
+        <h5 class="my-3">${cityInfo.EnglishName}</h5>
+        <div class="my-3">${weather.WeatherText}</div>
+        <div class="display-4 my-4">
+            <span>${weather.Temperature.Metric.Value}</span>
+            <span>&deg;C</span>
+        </div>
+    `;
+
+    //Show Card
+    if(card.classList.contains('d-none'))
+    {
+        card.classList.remove('d-none');
+    }
+}
+
+
 const updateCity = async (city) =>
 {
     const cityInfo = await getCity(city);
@@ -21,6 +48,6 @@ cityFormInput.addEventListener('submit', e =>
 
     //update UI
     updateCity(cityLoc)
-        .then(data =>console.log(data))
+        .then(data => updateUI(data))
         .catch(er => console.log(err));
 })
