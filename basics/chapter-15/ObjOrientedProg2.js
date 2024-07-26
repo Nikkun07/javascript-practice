@@ -28,14 +28,33 @@ class User
     }
 }
 
+class Admin extends User
+{
+    deleteUser(user)
+    {
+        users = users.filter(u => u.username != user.username);
+    }
+}
+
 const userOne = new User('Rappo', 'sleepy.raccoon@email.com');
 const userTwo = new User('Nikkun', 'nikkun.illust@gmail.com');
+const userThree = new Admin('Sakuya', 'example.email@gmail.com');
 
-// console.log(userOne, userTwo);
+console.log(userOne, userTwo, userThree);
+
+let users = [userOne, userTwo, userThree];
+console.log(users);
+
+userThree.deleteUser(userOne)
+console.log(users);
+
+userOne.deleteUser(userThree);
+
 // userOne.login();
 // userOne.logout();
+
 //This wont work unless there is a returned value in the constructed method that is not undefined:
-userOne.login().incScore().incScore().incScore().logout(); 
+// userOne.login().incScore().incScore().incScore().logout(); 
 
 //the 'new' keyword
 // 1 - it creates a new empty object {}
