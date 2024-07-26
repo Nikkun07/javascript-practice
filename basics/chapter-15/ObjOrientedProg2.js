@@ -48,7 +48,7 @@ console.log(users);
 userThree.deleteUser(userOne)
 console.log(users);
 
-userOne.deleteUser(userThree);
+//userOne.deleteUser(userThree); //Wont work since userOne is not an Admin user.
 
 // userOne.login();
 // userOne.logout();
