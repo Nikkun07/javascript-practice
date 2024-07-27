@@ -30,6 +30,12 @@ class User
 
 class Admin extends User
 {
+    constructor(username, email, title)
+    {
+        super(username, email);
+        this.title = title;
+    }
+
     deleteUser(user)
     {
         users = users.filter(u => u.username != user.username);
@@ -38,16 +44,16 @@ class Admin extends User
 
 const userOne = new User('Rappo', 'sleepy.raccoon@email.com');
 const userTwo = new User('Nikkun', 'nikkun.illust@gmail.com');
-const userThree = new Admin('Sakuya', 'example.email@gmail.com');
+const userThree = new Admin('Sakuya', 'example.email@gmail.com', 'procrastinator');
 
-console.log(userOne, userTwo, userThree);
+console.log(/* userOne, userTwo,  */userThree);
 
-let users = [userOne, userTwo, userThree];
+/* let users = [userOne, userTwo, userThree];
 console.log(users);
 
 userThree.deleteUser(userOne)
 console.log(users);
-
+ */
 //userOne.deleteUser(userThree); //Wont work since userOne is not an Admin user.
 
 // userOne.login();
