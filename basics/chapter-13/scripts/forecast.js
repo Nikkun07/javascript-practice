@@ -1,30 +1,37 @@
-const key = 'vC4T1EoPj7gzXphwAkascMO2cbUREzvJ';
-
-//Get City Info
-const getCity = async (city) => 
+class Forecast
 {
-    const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-    const query = `?apikey=${key}&q=${city}`;
+    constructor()
+    {
+        this.key = 'vC4T1EoPj7gzXphwAkascMO2cbUREzvJ';
+        this.weatherURI = 'http://dataservice.accuweather.com/currentconditions/v1/';
+        this.cityURI = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+    }
 
-    const response = await fetch(base + query);
+    async updateCity(city)
+    {
+        const cityInfo = await this.getCity(city);
+        const weather = await this.getWeather(cityInfo.Key);
+        return {cityInfo,weather}; //Object Shorthand Notation
+    }
 
-    const data = await response.json();
+    async getCity(city)
+    {
+        const query = `?apikey=${this.key}&q=${city}`;
+        const response = await fetch(this.cityURI + query);
+        const data = await response.json();
 
-    return data[0];
-};
+        return data[0];
+    }
 
-//Get Weather Information
-const getWeather = async (locID) =>
-{
-    const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
-    const query = `${locID}?apikey=${key}`;
+    async getWeather(locID)
+    {
+        const query = `${locID}?apikey=${this.key}`;
+        const response = await fetch(this.weatherURI + query);
+        const data = await response.json();
 
-    const response = await fetch(base + query);
-
-    const data = await response.json();
-
-    return data[0];
-};
+        return data[0];
+    }
+}
 
 /* TEST */
 // getCity('manila').then(data => 
