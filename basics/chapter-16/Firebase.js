@@ -1,4 +1,5 @@
 const list = document.querySelector('ul');
+const form = document.querySelector('form');
 
 const addArtist = (artistInfo) =>
 {
@@ -27,3 +28,25 @@ db.collection('test-collection').get().then(snapshot =>
 {
     console.log(err);
 });
+
+//Add Documents
+form.addEventListener('submit', e =>
+{
+    e.preventDefault();
+    const now = new Date();
+    const artTitle = 
+    {
+        title: form.Artist.value,
+        created_at: firebase.firestore.Timestamp.fromDate(now)
+    };
+
+    db.collection('test-collection').add(artTitle).then(() =>
+    {
+        console.log("Title Added");
+    }).catch(err =>
+    {
+        console.log(err);
+    }
+    )
+}
+)
