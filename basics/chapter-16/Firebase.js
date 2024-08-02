@@ -1,5 +1,6 @@
 const list = document.querySelector('ul');
 const form = document.querySelector('form');
+const unsubBtn = document.querySelector('button');
 
 const addArtist = (artistInfo, id) =>
 {
@@ -40,7 +41,7 @@ const deleteArtist = (id) => {
 }); */
 
 //Real Time Listener (Auto Update)
-db.collection('test-collection').onSnapshot(snapshot =>
+const unsub = db.collection('test-collection').onSnapshot(snapshot =>
 {
     //console.log(snapshot.docChanges());
     snapshot.docChanges().forEach(change =>
@@ -58,6 +59,7 @@ db.collection('test-collection').onSnapshot(snapshot =>
     }
     )
 });
+
 
 //Add Documents
 form.addEventListener('submit', e =>
@@ -92,5 +94,11 @@ list.addEventListener('click', e =>
             console.log("Info Deleted");
         });
     }
-}
-);
+});
+
+//Unsub
+unsubBtn.addEventListener('click', () =>
+{
+    unsub();
+    console.log('Unsubbed');
+});
