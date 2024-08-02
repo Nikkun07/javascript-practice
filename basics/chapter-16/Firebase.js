@@ -15,8 +15,18 @@ const addArtist = (artistInfo, id) =>
     `;
     list.innerHTML += html;
 }
+const deleteArtist = (id) => {
+    const artists = document.querySelectorAll('li');
+    artists.forEach(titleId => {
+        if(titleId.getAttribute('data-id') === id)
+        {
+            titleId.remove();
+        }
+    })
+}
 
-db.collection('test-collection').get().then(snapshot =>
+//Collect Documents
+/* db.collection('test-collection').get().then(snapshot =>
 {
     //when data is captured
     snapshot.docs.forEach(doc => {
@@ -27,6 +37,26 @@ db.collection('test-collection').get().then(snapshot =>
 }).catch(err =>
 {
     console.log(err);
+}); */
+
+//Real Time Listener (Auto Update)
+db.collection('test-collection').onSnapshot(snapshot =>
+{
+    //console.log(snapshot.docChanges());
+    snapshot.docChanges().forEach(change =>
+    {
+        const doc = change.doc;
+        console.log(doc);
+        if(change.type === 'added')
+        {
+            addArtist(doc.data(), doc.id);
+        }
+        else if(change.type === 'removed')
+        {
+            deleteArtist(doc.id);
+        }
+    }
+    )
 });
 
 //Add Documents
