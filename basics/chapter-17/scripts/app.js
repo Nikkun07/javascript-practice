@@ -10,4 +10,5 @@ const chatroom = new Chatroom('general', 'Sakuya');
 chatroom.getChatMessages((data) =>
 {
     console.log(data);
+    chatUI.render(data);
 });
