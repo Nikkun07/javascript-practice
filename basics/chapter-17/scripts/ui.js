@@ -11,12 +11,16 @@ class ChatUI
 
     render(data)
     {
+        const when = dateFns.distanceInWordsToNow(
+            data.created_at.toDate(),
+            {addSuffix:true}
+        )
         const html = 
         `
             <li class="list-group-item">
-                <span class="font-weight-bold username">${data.username}:</span>
+                <span class="thicc-text username">${data.username}</span>
                 <span class="message">${data.message}</span>
-                <div class="time">${data.created_at.toDate()}</div>
+                <div class="smolPP-text time">${when}</div>
             </li>
         `;
 
