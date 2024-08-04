@@ -1,11 +1,3 @@
-/* STRUCTURE */
-
-//Setup a real-time listener to capture new chats
-
-//update username
-
-//update chat room
-
 
 //Create Chatroom Class
 class Chatroom
@@ -15,6 +7,7 @@ class Chatroom
         this.room = room;
         this.username = username;
         this.chats = dataBase.collection('chats-collection');
+        this.unsub;
     }
 
     async addChat(message)
@@ -35,7 +28,7 @@ class Chatroom
 
     getChatMessages(callback)
     {
-        this.chats
+        this.unsub = this.chats
             .where('room', '==', this.room)
             .orderBy('created_at')
             .onSnapshot(snapshot =>
@@ -50,16 +43,50 @@ class Chatroom
                 });
             });
     }
+
+    updateName(username)
+    {
+        this.username = username;
+    }
+
+    updateRoom(roomName)
+    {
+        this.room = roomName;
+        console.log('Room Updated');
+
+        if(this.unsub)
+        {
+            this.unsub();
+        }
+    }
 }
 
-const chatroom = new Chatroom('general', 'Sakuya');
+
+/* THIS ARE ALL FOR TESTING THE CHATROOM CLASS PROTOTYPE */
+
+//Initialize chatroom
+/* const chatroom = new Chatroom('general', 'Nikkun'); */
+
+//Send Message Test
 /* chatroom.addChat(':Osanacry:')
     .then(() => console.log("Chat Added"))
     .catch(err => console.log(err)); */
 
-chatroom.getChatMessages((data) =>
+//Output Chatlogs
+/* chatroom.getChatMessages((data) =>
 {
-    console.log(data)
-});
+    console.log(data);
+}); */
 
-//console.log(chatroom);
+//Change Room Test
+/* setTimeout(() =>
+{  
+    chatroom.updateRoom('gaming');
+    chatroom.updateName('Nikkun');
+    chatroom.getChatMessages((data) =>
+    {
+        console.log(data)
+    });
+    //chatroom.addChat('This is a test');
+    
+}, 5000); */
