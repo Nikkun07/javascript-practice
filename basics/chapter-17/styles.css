@@ -1,6 +1,11 @@
+body
+{
+    background: #687387;
+}
 .container
 {
     max-width: 600px;
+    background: #687387;
 }
 .btn
 {
@@ -26,4 +31,10 @@
     font-weight: thin;
     color: gray;
     font-size: 0.675em
+}
+
+.update-msg
+{
+    text-align: center;
+    margin: 20px auto;
 }
