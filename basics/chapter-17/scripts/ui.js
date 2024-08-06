@@ -2,6 +2,7 @@
 
 //clear list of chats after room change
 
+
 class ChatUI
 {
     constructor(list)
@@ -25,5 +26,10 @@ class ChatUI
         `;
 
         this.list.innerHTML += html;
+    }
+
+    clear()
+    {
+        this.list.innerHTML = '';
     }
 }

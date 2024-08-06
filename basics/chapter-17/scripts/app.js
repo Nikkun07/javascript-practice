@@ -3,6 +3,7 @@ const chatList = document.querySelector('.chat-list');
 const newChatForm = document.querySelector('.new-chat');
 const newNameForm = document.querySelector('.new-name');
 const updateMsg = document.querySelector('.update-msg');
+const rooms = document.querySelector('.chat-rooms');
 
 //Check Local Storage for Name
 const username = localStorage.username ? localStorage.username : 'Anon';
@@ -11,6 +12,17 @@ const username = localStorage.username ? localStorage.username : 'Anon';
 //Class Instances
 const chatUI = new ChatUI(chatList);
 const chatroom = new Chatroom('general', username);
+
+//Update Chat Room
+rooms.addEventListener('click', e =>
+{
+    if(e.target.tagName === 'BUTTON')
+    {
+        chatUI.clear();
+        chatroom.updateRoom(e.target.getAttribute('id'));
+        chatroom.getChatMessages(chat => chatUI.render(chat));
+    };
+});
 
 
 //Add New Chat
