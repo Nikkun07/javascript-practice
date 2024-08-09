@@ -1,7 +1,6 @@
 import {addTitle, styleBody, email} from './dom';
+import artists, { getProcrastinators } from './data';
 
-console.log('Index File');
 
-styleBody();
-addTitle("UOHHHH CUNNYYYYY");
-console.log(email);
+const procrastinators = getProcrastinators(artists);
+console.log(artists, procrastinators);

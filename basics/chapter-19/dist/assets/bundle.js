@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("dom file");const e=document.querySelector("body");console.log("Index File"),e.style.background="#708090",(()=>{const o=document.createElement("h1");o.textContent="UOHHHH CUNNYYYYY",o.style.color="white",e.appendChild(o)})(),console.log("example@email.com")})();
+(()=>{"use strict";console.log("dom file"),document.querySelector("body");const n=[{name:"Nikkun",procrastinating:!0},{name:"Renti",procrastinating:!1},{name:"Sakuya",procrastinating:!0},{name:"Wow",procrastinating:!1}],o=(n=>n.filter((n=>n.procrastinating)))(n);console.log(n,o)})();
