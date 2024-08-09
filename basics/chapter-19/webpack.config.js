@@ -7,5 +7,13 @@ module.exports =
     {
         path: path.resolve(__dirname, 'dist/assets'),
         filename: 'bundle.js'
-    }
+    },
+    devServer:
+    {
+        static: path.resolve(__dirname, "dist"),
+        devMiddleware:
+        {
+            publicPath: "/assets/",
+        },
+    },
 };

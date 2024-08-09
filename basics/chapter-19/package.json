@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "babel": "babel.cmd src/index.js -w -o dist/assets/bundle.js",
-    "webpack": "webpack.cmd"
+    "build": "webpack.cmd --mode production",
+    "serve": "webpack-dev-server --mode development"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +15,8 @@
     "@babel/preset-env": "^7.25.3",
     "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^4.0.0"
   }
 }
