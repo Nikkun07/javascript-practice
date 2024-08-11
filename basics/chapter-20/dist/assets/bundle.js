@@ -1,1 +1,1 @@
-document.querySelector("body").innerHTML+="\n    <p>If you can read this, then the boilerplate is successfully initiated.</p>\n";
+console.log("test");
