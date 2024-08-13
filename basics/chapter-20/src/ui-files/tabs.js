@@ -24,7 +24,7 @@ class Tabs
         this.tabs.forEach(tab => tab.classList.remove('active'));
         e.target.classList.add('active');
     }
-
+    
     toggleContent(e)
     {
         this.container.querySelectorAll(".content").forEach(item =>
