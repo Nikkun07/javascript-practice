@@ -1,3 +1,5 @@
+import './style-files/tabs.css';
+
 class Tabs
 {
     constructor(container)
