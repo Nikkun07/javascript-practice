@@ -4,15 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Library</title>
     <style>
-        body{ font-size: 1.5em; }
+        body{font-family: Arial, Helvetica, sans-serif; }
         .container{ margin: 40px; margin-top: 60px; }
     </style>
 </head>
 <body>
     <div class="container">
+
+        <!-- Tooltip -->
         <h1>Tooltip</h1>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span class="tooltip" data-message="This is a tooltip">Optio debitis</span> Optio debitis vero sunt numquam ut eos cumque minima accusantium sapiente recusandae.</p>
+        <p>So as a joke, I went to my friend's house wearing Pekora's wig and clothes. I could barely stop my laughter as he went as red as a tomato and looked at me from head to toe with a bit of drool in his mouth.  The way he stared made mde feel a bit funny too, but I decided to tease him more by taking off my clothes. He asked me, <span class="tooltip" data-message="You are gae">"Are you serious?"</span> and I said "Yep peko."</p>
 
         <!-- DropDowns -->
 
@@ -20,7 +22,7 @@
         <div class="dropdown">
             <div class="trigger">This is Trigger 1</div>
             <div class="content">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi sit aliquam nihil similique reprehenderit consequuntur obcaecati voluptates voluptatibus facere cumque.</p>
+                <p>He went silent for what seemed like forever, so I asked him, "What's the matter peko?" He said he's confused, but then his boner got really hard, which made me take off his clothes.</p>
             </div>
         </div>
 
@@ -30,6 +32,32 @@
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi sit aliquam nihil similique reprehenderit consequuntur obcaecati voluptates voluptatibus facere cumque.</p>
             </div>
         </div>
+
+
+        <!-- Tabbed Content -->
+         <h1>Tabbed Content</h1>
+
+         <div class="tabs">
+            <ul>
+                <li class="trigger active" data-target="#TabOne">Tab 1</li>
+                <li class="trigger" data-target="#TabTwo">Tab 2</li>
+                <li class="trigger" data-target="#TabThree">Tab 3</li>
+             </ul>
+             <div id="TabOne" class="content active">
+                <h3>Tab One</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, distinctio.</p>
+             </div>
+
+             <div id="TabTwo" class="content">
+                <h3>Tab Two</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, distinctio.</p>
+             </div>
+
+             <div id="TabThree" class="content ">
+                <h3>Tab Three</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, distinctio.</p>
+             </div>
+         </div>
     </div>
     <script src="assets/bundle.js"> </script>
 </body>
