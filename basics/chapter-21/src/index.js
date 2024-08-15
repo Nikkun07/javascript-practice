@@ -12,7 +12,8 @@ import
 {
     getAuth,
     createUserWithEmailAndPassword,
-    signOut, signInWithEmailAndPassword
+    signOut, signInWithEmailAndPassword,
+    onAuthStateChanged
 }from 'firebase/auth';
 
 const firebaseConfig = {
@@ -38,7 +39,7 @@ const firebaseConfig = {
   const q = query(colRef, orderBy('createdAt'));
 
   //Realtime Collection Data
-    onSnapshot(q, (snapshot) =>
+  const unsubCol = onSnapshot(q, (snapshot) =>
     {
         let books = [];
         snapshot.docs.forEach((doc) =>
@@ -82,7 +83,7 @@ deleteBookForm.addEventListener('submit', (e) =>
 
 const docRef = doc(db,'books', '3sLClSHodoGrpw0VoZTb');
 
-onSnapshot(docRef, (doc) =>
+const unsubDoc = onSnapshot(docRef, (doc) =>
 {
     console.log(doc.data(), doc.id);
 })
@@ -115,7 +116,7 @@ signUpForm.addEventListener('submit', (e) =>
     createUserWithEmailAndPassword(auth, email, password)
         .then((cred) =>
         {
-            console.log("User Created: ", cred.user);
+            //console.log("User Created: ", cred.user);
             signUpForm.reset();
         })
         .catch((err) =>
@@ -132,7 +133,7 @@ logOutButton.addEventListener('click', () =>
     signOut(auth)
         .then(() =>
         {
-            console.log('User Logged Out.');
+            //console.log('User Logged Out.');
         })
         .catch((err) =>
         {
@@ -150,10 +151,27 @@ logInForm.addEventListener('submit', (e) =>
     signInWithEmailAndPassword(auth, email, password)
         .then((cred) =>
         {
-            console.log("User Logged In", cred.user);
+            //console.log("User Logged In", cred.user);
         })
         .catch((err) =>
         {
             console.log(err.message);
         })
+});
+
+//Sub to Auth Change
+
+const unsubAuth = onAuthStateChanged(auth, (user) =>
+{
+    console.log('User Status Changed:', user);
+});
+
+//Unsub 
+const unsubBtn = document.querySelector('.unsub')
+unsubBtn.addEventListener('click', () =>
+{
+    console.log("Unsubscribing...");
+    unsubCol();
+    unsubDoc();
+    unsubAuth();
 });
