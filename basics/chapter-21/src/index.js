@@ -5,7 +5,7 @@ import
     addDoc, deleteDoc, doc,
     query, where,
     orderBy, serverTimestamp,
-    getDoc
+    getDoc, updateDoc
 } from 'firebase/firestore';
 
 
@@ -80,3 +80,20 @@ onSnapshot(docRef, (doc) =>
 {
     console.log(doc.data(), doc.id);
 })
+
+//Updating a Document
+const updateForm = document.querySelector('.update');
+updateForm.addEventListener('submit', (e) =>
+{
+    e.preventDefault();
+
+    const docRef = doc(db, 'books', updateForm.id.value);
+    updateDoc(docRef, 
+    {
+        title: 'Updated Title'
+    })
+    .then(() => 
+    {
+        updateForm.reset();
+    });
+});
